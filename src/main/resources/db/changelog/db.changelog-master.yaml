@@ -1,0 +1,4858 @@
+databaseChangeLog:
+- changeSet:
+    id: 1734496108674-1
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: client_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: data_pump_pkey
+            name: id
+            type: INTEGER
+        - column:
+            defaultValueNumeric: 0
+            name: rate_limit
+            type: INTEGER
+        - column:
+            defaultValueBoolean: true
+            name: status
+            type: BOOLEAN
+        - column:
+            name: created
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: last_access
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: api_key
+            type: VARCHAR(255)
+        - column:
+            name: data_pump_name
+            type: VARCHAR(255)
+        tableName: data_pump
+- changeSet:
+    id: 1734496108674-2
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: author
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_script_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: user_id
+            type: INTEGER
+        - column:
+            name: created
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: script_name
+            type: VARCHAR(255)
+        - column:
+            name: script_type
+            type: VARCHAR(255)
+        - column:
+            defaultValueBoolean: true
+            name: status
+            type: BOOLEAN
+        tableName: user_script
+- changeSet:
+    id: 1734496108674-3
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: customer_configuration_pkey
+            name: configuration_item_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: customer_configuration_pkey
+            name: customer_id
+            type: INTEGER
+        - column:
+            name: value
+            type: VARCHAR(255)
+        tableName: customer_configuration
+- changeSet:
+    id: 1734496108674-4
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: generate_batch
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_permission_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: read
+            type: BOOLEAN
+        - column:
+            name: user_id
+            type: INTEGER
+        - column:
+            name: write
+            type: BOOLEAN
+        tableName: user_permission
+- changeSet:
+    id: 1734496108674-5
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: customer_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: billing_rule_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: numeric_value
+            type: INTEGER
+        - column:
+            name: department_id
+            type: VARCHAR(255)
+        - column:
+            name: rule_type
+            type: VARCHAR(255)
+        - column:
+            name: text_value
+            type: VARCHAR(255)
+        tableName: billing_rule
+- changeSet:
+    id: 1734496108674-6
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: specialty_kod
+            type: VARCHAR(3)
+        - column:
+            name: contracted_department_icp
+            type: VARCHAR(8)
+        - column:
+            name: cost_unit
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: customer_department_pkey
+            name: id
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        tableName: customer_department
+- changeSet:
+    id: 1734496108674-7
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: active
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: customer_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: vzp_branch_cpo
+            type: VARCHAR(4)
+        - column:
+            name: company_number
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: zz_facility_id
+            type: VARCHAR(255)
+        tableName: customer
+- changeSet:
+    id: 1734496108674-8
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: cost
+            type: numeric(38, 2)
+        - column:
+            name: payor_kod
+            type: VARCHAR(3)
+        - column:
+            name: procedure_id
+            type: INTEGER
+        - column:
+            name: validity_from
+            type: date
+        - column:
+            name: validity_until
+            type: date
+        - column:
+            name: point_score
+            type: BIGINT
+        - column:
+            name: department_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: customer_passport_pkey
+            name: id
+            type: VARCHAR(255)
+        tableName: customer_passport
+- changeSet:
+    id: 1734496108674-9
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: general_settings_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: user_id
+            type: INTEGER
+        - column:
+            name: customer_title
+            type: VARCHAR(40)
+        tableName: general_settings
+- changeSet:
+    id: 1734496108674-10
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: additional_diagnoses_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: patient_event_id
+            type: INTEGER
+        tableName: patient_event_additional_diagnoses
+- changeSet:
+    id: 1734496108674-11
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: patient_event_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: date_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: author
+            type: VARCHAR(255)
+        - column:
+            name: department_id
+            type: VARCHAR(255)
+        - column:
+            name: event_type
+            type: VARCHAR(255)
+        - column:
+            name: health_card_number
+            type: VARCHAR(255)
+        - column:
+            name: health_record_number
+            type: VARCHAR(255)
+        - column:
+            name: insurance_number
+            type: VARCHAR(255)
+        - column:
+            name: main_diagnosis
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: VARCHAR(255)
+        - column:
+            name: source_event_id
+            type: VARCHAR(255)
+        tableName: patient_event
+- changeSet:
+    id: 1734496108674-12
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: documents_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: patient_event_id
+            type: INTEGER
+        tableName: patient_event_documents
+- changeSet:
+    id: 1734496108674-13
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: patient_event_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: procedures_id
+            type: INTEGER
+        tableName: patient_event_procedures
+- changeSet:
+    id: 1734496108674-14
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: patient_event_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: products_id
+            type: INTEGER
+        tableName: patient_event_products
+- changeSet:
+    id: 1734496108674-15
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: procedure_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: performed_count
+            type: INTEGER
+        - column:
+            name: specialty_kod
+            type: VARCHAR(3)
+        - column:
+            name: diagnosis_code
+            type: VARCHAR(255)
+        - column:
+            name: point_score
+            type: VARCHAR(255)
+        - column:
+            name: procedure_code
+            type: VARCHAR(255)
+        tableName: procedure
+- changeSet:
+    id: 1734496108674-16
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: user_id
+        constraintName: user_script_user_id_key
+        tableName: user_script
+- changeSet:
+    id: 1734496108674-17
+    author: jack (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: customer_id
+        - column:
+            name: configuration_item_id
+        indexName: idx_customer_item
+        tableName: customer_configuration
+- changeSet:
+    id: 1734496108674-18
+    author: jack (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: user_id
+        indexName: idx_user_customer
+        tableName: user_permission
+- changeSet:
+    id: 1734496108674-19
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: customer_id
+        constraintName: billing_rule_customer_id_key
+        tableName: billing_rule
+- changeSet:
+    id: 1734496108674-20
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: department_id
+        constraintName: billing_rule_department_id_key
+        tableName: billing_rule
+- changeSet:
+    id: 1734496108674-21
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: contracted_department_icp
+        constraintName: customer_department_contracted_department_icp_key
+        tableName: customer_department
+- changeSet:
+    id: 1734496108674-22
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name
+        constraintName: customer_name_key
+        tableName: customer
+- changeSet:
+    id: 1734496108674-23
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: payor_kod
+        constraintName: customer_passport_payor_kod_key
+        tableName: customer_passport
+- changeSet:
+    id: 1734496108674-24
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: user_id
+        constraintName: general_settings_user_id_key
+        tableName: general_settings
+- changeSet:
+    id: 1734496108674-25
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: additional_diagnoses_id
+        constraintName: patient_event_additional_diagnoses_additional_diagnoses_id_key
+        tableName: patient_event_additional_diagnoses
+- changeSet:
+    id: 1734496108674-26
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: department_id
+        constraintName: patient_event_department_id_key
+        tableName: patient_event
+- changeSet:
+    id: 1734496108674-27
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: patient_id
+        constraintName: patient_event_patient_id_key
+        tableName: patient_event
+- changeSet:
+    id: 1734496108674-28
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: documents_id
+        constraintName: patient_event_documents_documents_id_key
+        tableName: patient_event_documents
+- changeSet:
+    id: 1734496108674-29
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: procedures_id
+        constraintName: patient_event_procedures_procedures_id_key
+        tableName: patient_event_procedures
+- changeSet:
+    id: 1734496108674-30
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: products_id
+        constraintName: patient_event_products_products_id_key
+        tableName: patient_event_products
+- changeSet:
+    id: 1734496108674-31
+    author: jack (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: specialty_kod
+        constraintName: procedure_specialty_kod_key
+        tableName: procedure
+- changeSet:
+    id: 1734496108674-32
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: additional_diagnosis_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-33
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: billing_rule_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-34
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: configuration_item_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-35
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: data_pump_customer_permissions_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-36
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: data_pump_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-37
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: discharge_type_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-38
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: document_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-39
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: drg_relative_weight_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-40
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: general_settings_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-41
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: patient_event_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-42
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: procedure_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-43
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: product_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-44
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: staging_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-45
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: unprocessable_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-46
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: user_permission_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-47
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: user_script_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-48
+    author: jack (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: user_seq
+        startValue: 1
+- changeSet:
+    id: 1734496108674-49
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: diagnosis_order
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: additional_diagnosis_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: diagnosis_code
+            type: VARCHAR(255)
+        tableName: additional_diagnosis
+- changeSet:
+    id: 1734496108674-50
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: admission_type_pkey
+            name: kod
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: naz
+            type: VARCHAR(60)
+        tableName: admission_type
+- changeSet:
+    id: 1734496108674-51
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: assigned_bill_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            name: id_pripadu
+            type: VARCHAR(15)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: assigned_bill_pkey
+            name: id_dokladu
+            type: VARCHAR(20)
+        tableName: assigned_bill
+- changeSet:
+    id: 1734496108674-52
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: datdo
+            type: date
+        - column:
+            name: datod
+            type: date
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: band_pkey
+            name: kod2
+            type: VARCHAR(3)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: band_pkey
+            name: ozn
+            type: VARCHAR(2)
+        - column:
+            name: pdnu
+            type: INTEGER
+        - column:
+            name: saz
+            type: INTEGER
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: band_pkey
+            name: kod1
+            type: VARCHAR(5)
+        tableName: band
+- changeSet:
+    id: 1734496108674-53
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: datum_nar
+            type: date
+        - column:
+            name: datum_pri
+            type: date
+        - column:
+            name: datum_pro
+            type: date
+        - column:
+            name: dg_vedlejsi_typ1
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ10
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ11
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ12
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ13
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ14
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ2
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ3
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ4
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ5
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ6
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ7
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ8
+            type: VARCHAR(1)
+        - column:
+            name: dg_vedlejsi_typ9
+            type: VARCHAR(1)
+        - column:
+            name: dru_pri
+            type: VARCHAR(1)
+        - column:
+            name: duv_pri
+            type: VARCHAR(1)
+        - column:
+            name: gest_vek
+            type: SMALLINT
+        - column:
+            name: hmotnost
+            type: SMALLINT
+        - column:
+            name: id_zp
+            type: SMALLINT
+        - column:
+            name: odb
+            type: VARCHAR(3)
+        - column:
+            name: pohlavi
+            type: SMALLINT
+        - column:
+            name: prijeti
+            type: VARCHAR(1)
+        - column:
+            name: ukonceni
+            type: VARCHAR(1)
+        - column:
+            name: upv
+            type: SMALLINT
+        - column:
+            name: vekden
+            type: SMALLINT
+        - column:
+            name: veklet
+            type: SMALLINT
+        - column:
+            name: dg_vedlejsi1
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi10
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi11
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi12
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi13
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi14
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi2
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi3
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi4
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi5
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi6
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi7
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi8
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi9
+            type: VARCHAR(5)
+        - column:
+            name: dg_zakladni
+            type: VARCHAR(5)
+        - column:
+            name: idzz
+            type: VARCHAR(8)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill02_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill02_pkey
+            name: id_dokladu
+            type: VARCHAR(20)
+        - column:
+            name: id_poj
+            type: VARCHAR(20)
+        tableName: bill02
+- changeSet:
+    id: 1734496108674-54
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: datum_zad
+            type: date
+        - column:
+            name: drudok
+            type: VARCHAR(2)
+        - column:
+            name: id_zp
+            type: SMALLINT
+        - column:
+            name: odb
+            type: VARCHAR(3)
+        - column:
+            name: odb_zad
+            type: VARCHAR(3)
+        - column:
+            name: icp_zad
+            type: VARCHAR(8)
+        - column:
+            name: idzz
+            type: VARCHAR(8)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06_pkey
+            name: id_dokladu
+            type: VARCHAR(20)
+        - column:
+            name: id_poj
+            type: VARCHAR(20)
+        tableName: bill06
+- changeSet:
+    id: 1734496108674-55
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06extramural_not_assigned_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06extramural_not_assigned_pkey
+            name: id_pripadu
+            type: VARCHAR(15)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06extramural_not_assigned_pkey
+            name: id_dokladu
+            type: VARCHAR(20)
+        tableName: bill06extramural_not_assigned
+- changeSet:
+    id: 1734496108674-56
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06intramural_not_assigned_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06intramural_not_assigned_pkey
+            name: id_pripadu
+            type: VARCHAR(15)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06intramural_not_assigned_pkey
+            name: id_dokladu
+            type: VARCHAR(20)
+        tableName: bill06intramural_not_assigned
+- changeSet:
+    id: 1734496108674-57
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06not_assigned_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06not_assigned_pkey
+            name: id_pripadu
+            type: VARCHAR(15)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06not_assigned_pkey
+            name: id_dokladu
+            type: VARCHAR(20)
+        tableName: bill06not_assigned
+- changeSet:
+    id: 1734496108674-58
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06unclear_not_assigned_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06unclear_not_assigned_pkey
+            name: id_pripadu
+            type: VARCHAR(15)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bill06unclear_not_assigned_pkey
+            name: id_dokladu
+            type: VARCHAR(20)
+        tableName: bill06unclear_not_assigned
+- changeSet:
+    id: 1734496108674-59
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: compensation_pkey
+            name: kod
+            type: VARCHAR(1)
+        - column:
+            name: pri
+            type: INTEGER
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: naz
+            type: VARCHAR(60)
+        - column:
+            name: sub
+            type: VARCHAR(60)
+        - column:
+            name: txt
+            type: VARCHAR(254)
+        tableName: compensation
+- changeSet:
+    id: 1734496108674-60
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: configuration_item_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: item_name
+            type: VARCHAR(255)
+        - column:
+            name: type
+            type: VARCHAR(255)
+        - column:
+            name: validation
+            type: VARCHAR(255)
+        tableName: configuration_item
+- changeSet:
+    id: 1734496108674-61
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: kod_odbornosti
+            type: VARCHAR(3)
+        - column:
+            name: platnost_do
+            type: date
+        - column:
+            name: platnost_od
+            type: date
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: adresa_pracoviste_psc
+            type: VARCHAR(5)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: contracted_department_pkey
+            name: icp
+            type: VARCHAR(8)
+        - column:
+            name: adresa_pracoviste_mesto
+            type: VARCHAR(255)
+        - column:
+            name: adresa_pracoviste_ulice
+            type: VARCHAR(255)
+        - column:
+            name: nazev_pracoviste
+            type: VARCHAR(255)
+        - column:
+            name: nazev_zarizeni
+            type: VARCHAR(255)
+        - column:
+            name: vedouci_lekar
+            type: VARCHAR(255)
+        tableName: contracted_department
+- changeSet:
+    id: 1734496108674-62
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: data_pump_id
+            type: INTEGER
+        - column:
+            name: allowed_ip_addresses
+            type: VARCHAR(255)
+        tableName: data_pump_allowed_ip_addresses
+- changeSet:
+    id: 1734496108674-63
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: customer_id
+            type: INTEGER
+        - column:
+            name: data_pump_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: data_pump_customer_permissions_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: status
+            type: BOOLEAN
+        - column:
+            name: created
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: valid_until
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: data_pump_customer_permissions
+- changeSet:
+    id: 1734496108674-64
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: datdo
+            type: date
+        - column:
+            name: datod
+            type: date
+        - column:
+            name: poh
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: vdo
+            type: VARCHAR(2)
+        - column:
+            name: vod
+            type: VARCHAR(2)
+        - column:
+            name: zna
+            type: VARCHAR(1)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: diagnosis_pkey
+            name: kod
+            type: VARCHAR(5)
+        - column:
+            name: naz
+            type: VARCHAR(70)
+        tableName: diagnosis
+- changeSet:
+    id: 1734496108674-65
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: discharge_type_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: kod
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: naz
+            type: VARCHAR(126)
+        tableName: discharge_type
+- changeSet:
+    id: 1734496108674-66
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: document_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: content
+            type: VARCHAR(255)
+        - column:
+            name: type
+            type: VARCHAR(255)
+        tableName: document
+- changeSet:
+    id: 1734496108674-67
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: bri_dny
+            type: SMALLINT
+        - column:
+            name: cev_dny
+            type: SMALLINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: drg_ideal_case_pkey
+            name: customer_id
+            type: INTEGER
+        - column:
+            name: dia_dny
+            type: SMALLINT
+        - column:
+            name: gest_vek
+            type: SMALLINT
+        - column:
+            name: hdl_dny
+            type: SMALLINT
+        - column:
+            name: hmotnost
+            type: SMALLINT
+        - column:
+            name: hrd_dny
+            type: SMALLINT
+        - column:
+            name: hru_dny
+            type: SMALLINT
+        - column:
+            name: htp_los
+            type: SMALLINT
+        - column:
+            name: kp1
+            type: SMALLINT
+        - column:
+            name: kp2
+            type: SMALLINT
+        - column:
+            name: krit_vyk1
+            type: INTEGER
+        - column:
+            name: krit_vyk10
+            type: INTEGER
+        - column:
+            name: krit_vyk11
+            type: INTEGER
+        - column:
+            name: krit_vyk12
+            type: INTEGER
+        - column:
+            name: krit_vyk13
+            type: INTEGER
+        - column:
+            name: krit_vyk14
+            type: INTEGER
+        - column:
+            name: krit_vyk15
+            type: INTEGER
+        - column:
+            name: krit_vyk16
+            type: INTEGER
+        - column:
+            name: krit_vyk17
+            type: INTEGER
+        - column:
+            name: krit_vyk18
+            type: INTEGER
+        - column:
+            name: krit_vyk19
+            type: INTEGER
+        - column:
+            name: krit_vyk2
+            type: INTEGER
+        - column:
+            name: krit_vyk20
+            type: INTEGER
+        - column:
+            name: krit_vyk21
+            type: INTEGER
+        - column:
+            name: krit_vyk22
+            type: INTEGER
+        - column:
+            name: krit_vyk23
+            type: INTEGER
+        - column:
+            name: krit_vyk24
+            type: INTEGER
+        - column:
+            name: krit_vyk25
+            type: INTEGER
+        - column:
+            name: krit_vyk3
+            type: INTEGER
+        - column:
+            name: krit_vyk4
+            type: INTEGER
+        - column:
+            name: krit_vyk5
+            type: INTEGER
+        - column:
+            name: krit_vyk6
+            type: INTEGER
+        - column:
+            name: krit_vyk7
+            type: INTEGER
+        - column:
+            name: krit_vyk8
+            type: INTEGER
+        - column:
+            name: krit_vyk9
+            type: INTEGER
+        - column:
+            name: krit_vyk_poc1
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc10
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc11
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc12
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc13
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc14
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc15
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc16
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc17
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc18
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc19
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc2
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc20
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc21
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc22
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc23
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc24
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc25
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc3
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc4
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc5
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc6
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc7
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc8
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc9
+            type: SMALLINT
+        - column:
+            name: krn_dny
+            type: SMALLINT
+        - column:
+            name: ltp_los
+            type: SMALLINT
+        - column:
+            name: oko_dny
+            type: SMALLINT
+        - column:
+            name: oz_dny
+            type: SMALLINT
+        - column:
+            name: pohlavi
+            type: SMALLINT
+        - column:
+            name: pop_dny
+            type: SMALLINT
+        - column:
+            name: ps_dny
+            type: SMALLINT
+        - column:
+            name: rhb_dny
+            type: SMALLINT
+        - column:
+            name: srd_dny
+            type: SMALLINT
+        - column:
+            name: vekden
+            type: SMALLINT
+        - column:
+            name: veklet
+            type: SMALLINT
+        - column:
+            name: zlu_dny
+            type: SMALLINT
+        - column:
+            name: zup_mno1
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno10
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno11
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno12
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno13
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno14
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno15
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno2
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno3
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno4
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno5
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno6
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno7
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno8
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno9
+            type: numeric(5, 2)
+        - column:
+            name: dg_hlavni
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi1
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi10
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi11
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi12
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi13
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi14
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi2
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi3
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi4
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi5
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi6
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi7
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi8
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi9
+            type: VARCHAR(5)
+        - column:
+            name: zup0
+            type: VARCHAR(7)
+        - column:
+            name: zup1
+            type: VARCHAR(7)
+        - column:
+            name: zup11
+            type: VARCHAR(7)
+        - column:
+            name: zup12
+            type: VARCHAR(7)
+        - column:
+            name: zup13
+            type: VARCHAR(7)
+        - column:
+            name: zup14
+            type: VARCHAR(7)
+        - column:
+            name: zup15
+            type: VARCHAR(7)
+        - column:
+            name: zup2
+            type: VARCHAR(7)
+        - column:
+            name: zup3
+            type: VARCHAR(7)
+        - column:
+            name: zup4
+            type: VARCHAR(7)
+        - column:
+            name: zup5
+            type: VARCHAR(7)
+        - column:
+            name: zup6
+            type: VARCHAR(7)
+        - column:
+            name: zup7
+            type: VARCHAR(7)
+        - column:
+            name: zup8
+            type: VARCHAR(7)
+        - column:
+            name: zup9
+            type: VARCHAR(7)
+        - column:
+            name: datum_pri
+            type: date
+        - column:
+            name: datum_pro
+            type: date
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: drg_ideal_case_pkey
+            name: drg
+            type: VARCHAR(9)
+        - column:
+            name: dg_vedlejsi_typ1
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ10
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ11
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ12
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ13
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ14
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ2
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ3
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ4
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ5
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ6
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ7
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ8
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ9
+            type: CHAR(1)
+        - column:
+            name: dru_pri
+            type: CHAR(1)
+        - column:
+            name: duv_pri
+            type: CHAR(1)
+        - column:
+            name: odb_pri
+            type: CHAR(3)
+        - column:
+            name: odb_pro
+            type: CHAR(3)
+        - column:
+            name: prijeti
+            type: CHAR(1)
+        - column:
+            name: ukonceni
+            type: CHAR(1)
+        - column:
+            name: upv
+            type: INTEGER
+        - column:
+            name: vykon1
+            type: CHAR(10)
+        - column:
+            name: vykon2
+            type: CHAR(10)
+        - column:
+            name: vykon3
+            type: CHAR(10)
+        - column:
+            name: vykon4
+            type: CHAR(10)
+        - column:
+            name: vykon5
+            type: CHAR(10)
+        - column:
+            name: vykon6
+            type: CHAR(10)
+        - column:
+            name: vykon7
+            type: CHAR(10)
+        - column:
+            name: vykon8
+            type: CHAR(10)
+        tableName: drg_ideal_case
+- changeSet:
+    id: 1734496108674-68
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: cn_los
+            type: INTEGER
+        - column:
+            name: cn_mat
+            type: INTEGER
+        - column:
+            name: datdo
+            type: date
+        - column:
+            name: datod
+            type: date
+        - column:
+            name: htp_los
+            type: INTEGER
+        - column:
+            name: htp_mat
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: drg_relative_weight_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: los
+            type: INTEGER
+        - column:
+            name: ltp_los
+            type: INTEGER
+        - column:
+            name: ltp_mat
+            type: INTEGER
+        - column:
+            name: n
+            type: INTEGER
+        - column:
+            name: rv
+            type: INTEGER
+        - column:
+            name: rv_los
+            type: INTEGER
+        - column:
+            name: rv_mat
+            type: INTEGER
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: ut
+            type: INTEGER
+        - column:
+            name: drg
+            type: VARCHAR(255)
+        - column:
+            name: drg_verze
+            type: VARCHAR(255)
+        - column:
+            name: nazev
+            type: VARCHAR(255)
+        tableName: drg_relative_weight
+- changeSet:
+    id: 1734496108674-69
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: drg_therapeutic_day_pkey
+            name: den
+            type: date
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: drg_therapeutic_day_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: drg_therapeutic_day_pkey
+            name: typ
+            type: VARCHAR(10)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: drg_therapeutic_day_pkey
+            name: id_pripadu
+            type: VARCHAR(15)
+        tableName: drg_therapeutic_day
+- changeSet:
+    id: 1734496108674-70
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: atc1
+            type: VARCHAR(1)
+        - column:
+            name: atc3
+            type: VARCHAR(3)
+        - column:
+            name: datdo
+            type: date
+        - column:
+            name: datod
+            type: date
+        - column:
+            name: dnc
+            type: VARCHAR(1)
+        - column:
+            name: drz
+            type: VARCHAR(4)
+        - column:
+            name: ekv1
+            type: numeric(13, 2)
+        - column:
+            name: ekv2
+            type: numeric(13, 2)
+        - column:
+            name: ekv3
+            type: numeric(13, 2)
+        - column:
+            name: end
+            type: VARCHAR(1)
+        - column:
+            name: ennv
+            type: numeric(13, 2)
+        - column:
+            name: ind1
+            type: VARCHAR(1)
+        - column:
+            name: ind2
+            type: VARCHAR(1)
+        - column:
+            name: ind3
+            type: VARCHAR(1)
+        - column:
+            name: leg_juhr1
+            type: VARCHAR(1)
+        - column:
+            name: leg_juhr2
+            type: VARCHAR(1)
+        - column:
+            name: leg_juhr3
+            type: VARCHAR(1)
+        - column:
+            name: lim1
+            type: VARCHAR(2)
+        - column:
+            name: lim2
+            type: VARCHAR(2)
+        - column:
+            name: lim3
+            type: VARCHAR(2)
+        - column:
+            name: mfc
+            type: numeric(13, 2)
+        - column:
+            name: nezap1
+            type: VARCHAR(1)
+        - column:
+            name: nezap2
+            type: VARCHAR(1)
+        - column:
+            name: nezap3
+            type: VARCHAR(1)
+        - column:
+            name: obal
+            type: VARCHAR(3)
+        - column:
+            name: odtd1
+            type: numeric(13, 4)
+        - column:
+            name: odtd2
+            type: numeric(13, 4)
+        - column:
+            name: odtd3
+            type: numeric(13, 4)
+        - column:
+            name: odtdbal1
+            type: numeric(11, 4)
+        - column:
+            name: odtdbal2
+            type: numeric(11, 4)
+        - column:
+            name: odtdbal3
+            type: numeric(11, 4)
+        - column:
+            name: orc
+            type: numeric(13, 2)
+        - column:
+            name: poc_uhr
+            type: numeric(13, 4)
+        - column:
+            name: pocdav
+            type: numeric(13)
+        - column:
+            name: puhr1
+            type: VARCHAR(1)
+        - column:
+            name: puhr2
+            type: VARCHAR(1)
+        - column:
+            name: puhr3
+            type: VARCHAR(1)
+        - column:
+            name: rp1
+            type: numeric(13, 2)
+        - column:
+            name: rp10
+            type: numeric(11, 4)
+        - column:
+            name: rp11
+            type: numeric(11, 4)
+        - column:
+            name: rp12
+            type: VARCHAR(1)
+        - column:
+            name: rp2
+            type: VARCHAR(1)
+        - column:
+            name: rp3
+            type: VARCHAR(2)
+        - column:
+            name: rp5
+            type: VARCHAR(1)
+        - column:
+            name: rp6
+            type: VARCHAR(1)
+        - column:
+            name: rp9
+            type: numeric(11, 4)
+        - column:
+            name: s_reg
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: tax
+            type: numeric(13, 2)
+        - column:
+            name: tcr
+            type: VARCHAR(3)
+        - column:
+            name: txl
+            type: VARCHAR(1)
+        - column:
+            name: uhr1
+            type: numeric(13, 2)
+        - column:
+            name: uhr2
+            type: numeric(13, 2)
+        - column:
+            name: uhr3
+            type: numeric(13, 2)
+        - column:
+            name: uhrproc
+            type: numeric(5, 2)
+        - column:
+            name: vyr
+            type: VARCHAR(3)
+        - column:
+            name: zap1
+            type: numeric(13, 2)
+        - column:
+            name: zap2
+            type: numeric(13, 2)
+        - column:
+            name: zap3
+            type: numeric(13, 2)
+        - column:
+            name: zem
+            type: VARCHAR(3)
+        - column:
+            name: zemdrz
+            type: VARCHAR(3)
+        - column:
+            name: zpvyd
+            type: VARCHAR(1)
+        - column:
+            name: zvl
+            type: VARCHAR(1)
+        - column:
+            name: forma
+            type: VARCHAR(5)
+        - column:
+            name: odtdj1
+            type: VARCHAR(5)
+        - column:
+            name: odtdj2
+            type: VARCHAR(5)
+        - column:
+            name: odtdj3
+            type: VARCHAR(5)
+        - column:
+            name: rp8
+            type: VARCHAR(5)
+        - column:
+            name: atc
+            type: VARCHAR(7)
+        - column:
+            name: cesta
+            type: VARCHAR(7)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: drug_pkey
+            name: kod
+            type: VARCHAR(7)
+        - column:
+            name: dat
+            type: VARCHAR(8)
+        - column:
+            name: juhr2_platd
+            type: VARCHAR(8)
+        - column:
+            name: juhr3_platdo
+            type: VARCHAR(8)
+        - column:
+            name: juhr_platdo1
+            type: VARCHAR(8)
+        - column:
+            name: sila
+            type: VARCHAR(15)
+        - column:
+            name: baleni
+            type: VARCHAR(22)
+        - column:
+            name: dop
+            type: VARCHAR(30)
+        - column:
+            name: ome1
+            type: VARCHAR(40)
+        - column:
+            name: ome2
+            type: VARCHAR(40)
+        - column:
+            name: ome3
+            type: VARCHAR(40)
+        - column:
+            name: naz
+            type: VARCHAR(70)
+        - column:
+            name: naz_reg
+            type: VARCHAR(70)
+        tableName: drug
+- changeSet:
+    id: 1734496108674-71
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: počet_k_podmínce
+            type: numeric(3)
+        - column:
+            name: počet_výkonů
+            type: numeric(3)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: kód_výkonu
+            type: VARCHAR(5)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: frequency_pkey
+            name: id_fo
+            type: VARCHAR(9)
+        - column:
+            name: podmínka
+            type: VARCHAR(20)
+        tableName: frequency
+- changeSet:
+    id: 1734496108674-72
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: datum_pri
+            type: date
+        - column:
+            name: datum_pro
+            type: date
+        - column:
+            name: gest_vek
+            type: SMALLINT
+        - column:
+            name: hmotnost
+            type: SMALLINT
+        - column:
+            name: id_zp
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc1
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc10
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc11
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc12
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc13
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc14
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc15
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc16
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc17
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc18
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc19
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc2
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc20
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc21
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc22
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc23
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc24
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc25
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc3
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc4
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc5
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc6
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc7
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc8
+            type: SMALLINT
+        - column:
+            name: krit_vyk_poc9
+            type: SMALLINT
+        - column:
+            name: los
+            type: SMALLINT
+        - column:
+            name: pohlavi
+            type: SMALLINT
+        - column:
+            name: upv
+            type: INTEGER
+        - column:
+            name: vekden
+            type: SMALLINT
+        - column:
+            name: veklet
+            type: SMALLINT
+        - column:
+            name: zup_mno1
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno2
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno3
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno4
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno5
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno6
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno7
+            type: numeric(5, 2)
+        - column:
+            name: zup_mno8
+            type: numeric(5, 2)
+        - column:
+            name: dg_hlavni
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi1
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi10
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi11
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi12
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi13
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi14
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi2
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi3
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi4
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi5
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi6
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi7
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi8
+            type: VARCHAR(5)
+        - column:
+            name: dg_vedlejsi9
+            type: VARCHAR(5)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: grouper_input_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            name: id_poj
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: grouper_input_pkey
+            name: id_pripadu
+            type: VARCHAR(20)
+        - column:
+            name: dg_vedlejsi_typ
+            type: CHAR(1)
+        - column:
+            name: dg_vedlejsi_typ1
+            type: CHAR(1)
+        - column:
+            name: dru_pri
+            type: CHAR(1)
+        - column:
+            name: duv_pri
+            type: CHAR(1)
+        - column:
+            name: idzz
+            type: CHAR(8)
+        - column:
+            name: krit_vyk1
+            type: CHAR(5)
+        - column:
+            name: krit_vyk10
+            type: CHAR(5)
+        - column:
+            name: krit_vyk11
+            type: CHAR(5)
+        - column:
+            name: krit_vyk12
+            type: CHAR(5)
+        - column:
+            name: krit_vyk13
+            type: CHAR(5)
+        - column:
+            name: krit_vyk14
+            type: CHAR(5)
+        - column:
+            name: krit_vyk15
+            type: CHAR(5)
+        - column:
+            name: krit_vyk16
+            type: CHAR(5)
+        - column:
+            name: krit_vyk17
+            type: CHAR(5)
+        - column:
+            name: krit_vyk18
+            type: CHAR(5)
+        - column:
+            name: krit_vyk19
+            type: CHAR(5)
+        - column:
+            name: krit_vyk2
+            type: CHAR(5)
+        - column:
+            name: krit_vyk20
+            type: CHAR(5)
+        - column:
+            name: krit_vyk21
+            type: CHAR(5)
+        - column:
+            name: krit_vyk22
+            type: CHAR(5)
+        - column:
+            name: krit_vyk23
+            type: CHAR(5)
+        - column:
+            name: krit_vyk24
+            type: CHAR(5)
+        - column:
+            name: krit_vyk25
+            type: CHAR(5)
+        - column:
+            name: krit_vyk3
+            type: CHAR(5)
+        - column:
+            name: krit_vyk4
+            type: CHAR(5)
+        - column:
+            name: krit_vyk5
+            type: CHAR(5)
+        - column:
+            name: krit_vyk6
+            type: CHAR(5)
+        - column:
+            name: krit_vyk7
+            type: CHAR(5)
+        - column:
+            name: krit_vyk8
+            type: CHAR(5)
+        - column:
+            name: krit_vyk9
+            type: CHAR(5)
+        - column:
+            name: odb_pri
+            type: CHAR(3)
+        - column:
+            name: odb_pro
+            type: CHAR(3)
+        - column:
+            name: prijeti
+            type: CHAR(1)
+        - column:
+            name: ukonceni
+            type: CHAR(1)
+        - column:
+            name: zup1
+            type: CHAR(8)
+        - column:
+            name: zup2
+            type: CHAR(8)
+        - column:
+            name: zup3
+            type: CHAR(8)
+        - column:
+            name: zup4
+            type: CHAR(8)
+        - column:
+            name: zup5
+            type: CHAR(8)
+        - column:
+            name: zup6
+            type: CHAR(8)
+        - column:
+            name: zup7
+            type: CHAR(8)
+        - column:
+            name: zup8
+            type: CHAR(8)
+        tableName: grouper_input
+- changeSet:
+    id: 1734496108674-73
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: chyba
+            type: SMALLINT
+        - column:
+            name: chyba_dg1
+            type: SMALLINT
+        - column:
+            name: chyba_dg10
+            type: SMALLINT
+        - column:
+            name: chyba_dg11
+            type: SMALLINT
+        - column:
+            name: chyba_dg12
+            type: SMALLINT
+        - column:
+            name: chyba_dg13
+            type: SMALLINT
+        - column:
+            name: chyba_dg14
+            type: SMALLINT
+        - column:
+            name: chyba_dg2
+            type: SMALLINT
+        - column:
+            name: chyba_dg3
+            type: SMALLINT
+        - column:
+            name: chyba_dg4
+            type: SMALLINT
+        - column:
+            name: chyba_dg5
+            type: SMALLINT
+        - column:
+            name: chyba_dg6
+            type: SMALLINT
+        - column:
+            name: chyba_dg7
+            type: SMALLINT
+        - column:
+            name: chyba_dg8
+            type: SMALLINT
+        - column:
+            name: chyba_dg9
+            type: SMALLINT
+        - column:
+            name: chyba_vyk1
+            type: SMALLINT
+        - column:
+            name: chyba_vyk10
+            type: SMALLINT
+        - column:
+            name: chyba_vyk11
+            type: SMALLINT
+        - column:
+            name: chyba_vyk12
+            type: SMALLINT
+        - column:
+            name: chyba_vyk13
+            type: SMALLINT
+        - column:
+            name: chyba_vyk14
+            type: SMALLINT
+        - column:
+            name: chyba_vyk15
+            type: SMALLINT
+        - column:
+            name: chyba_vyk16
+            type: SMALLINT
+        - column:
+            name: chyba_vyk17
+            type: SMALLINT
+        - column:
+            name: chyba_vyk18
+            type: SMALLINT
+        - column:
+            name: chyba_vyk19
+            type: SMALLINT
+        - column:
+            name: chyba_vyk2
+            type: SMALLINT
+        - column:
+            name: chyba_vyk20
+            type: SMALLINT
+        - column:
+            name: chyba_vyk21
+            type: SMALLINT
+        - column:
+            name: chyba_vyk22
+            type: SMALLINT
+        - column:
+            name: chyba_vyk23
+            type: SMALLINT
+        - column:
+            name: chyba_vyk24
+            type: SMALLINT
+        - column:
+            name: chyba_vyk25
+            type: SMALLINT
+        - column:
+            name: chyba_vyk3
+            type: SMALLINT
+        - column:
+            name: chyba_vyk4
+            type: SMALLINT
+        - column:
+            name: chyba_vyk5
+            type: SMALLINT
+        - column:
+            name: chyba_vyk6
+            type: SMALLINT
+        - column:
+            name: chyba_vyk7
+            type: SMALLINT
+        - column:
+            name: chyba_vyk8
+            type: SMALLINT
+        - column:
+            name: chyba_vyk9
+            type: SMALLINT
+        - column:
+            name: chyba_zup1
+            type: SMALLINT
+        - column:
+            name: chyba_zup10
+            type: SMALLINT
+        - column:
+            name: chyba_zup11
+            type: SMALLINT
+        - column:
+            name: chyba_zup12
+            type: SMALLINT
+        - column:
+            name: chyba_zup13
+            type: SMALLINT
+        - column:
+            name: chyba_zup14
+            type: SMALLINT
+        - column:
+            name: chyba_zup2
+            type: SMALLINT
+        - column:
+            name: chyba_zup3
+            type: SMALLINT
+        - column:
+            name: chyba_zup4
+            type: SMALLINT
+        - column:
+            name: chyba_zup5
+            type: SMALLINT
+        - column:
+            name: chyba_zup6
+            type: SMALLINT
+        - column:
+            name: chyba_zup7
+            type: SMALLINT
+        - column:
+            name: chyba_zup8
+            type: SMALLINT
+        - column:
+            name: chyba_zup9
+            type: SMALLINT
+        - column:
+            name: skore_zav
+            type: SMALLINT
+        - column:
+            name: drg_kat
+            type: VARCHAR(7)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: grouper_output_pkey
+            name: run_id
+            type: BIGINT
+        - column:
+            name: drg
+            type: VARCHAR(9)
+        - column:
+            name: verze_g
+            type: VARCHAR(10)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: grouper_output_pkey
+            name: id_pripadu
+            type: VARCHAR(20)
+        tableName: grouper_output
+- changeSet:
+    id: 1734496108674-74
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: datdo
+            type: date
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: hospital_drug_pkey
+            name: datod
+            type: date
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: hospital_drug_pkey
+            name: kod
+            type: VARCHAR(7)
+        tableName: hospital_drug
+- changeSet:
+    id: 1734496108674-75
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: atc1
+            type: VARCHAR(1)
+        - column:
+            name: atc3
+            type: VARCHAR(3)
+        - column:
+            name: datdo
+            type: date
+        - column:
+            name: datod
+            type: date
+        - column:
+            name: ind1
+            type: VARCHAR(1)
+        - column:
+            name: lim1
+            type: VARCHAR(2)
+        - column:
+            name: mfc
+            type: numeric(13, 2)
+        - column:
+            name: mjd
+            type: VARCHAR(4)
+        - column:
+            name: nezap
+            type: VARCHAR(1)
+        - column:
+            name: obal
+            type: VARCHAR(3)
+        - column:
+            name: puhr1
+            type: VARCHAR(1)
+        - column:
+            name: rp1
+            type: VARCHAR(1)
+        - column:
+            name: rp2
+            type: numeric(13, 2)
+        - column:
+            name: rp3
+            type: date
+        - column:
+            name: rp4
+            type: numeric(13, 2)
+        - column:
+            name: rp5
+            type: numeric(8)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: tax
+            type: numeric(13, 2)
+        - column:
+            name: txl
+            type: VARCHAR(1)
+        - column:
+            name: typ
+            type: VARCHAR(2)
+        - column:
+            name: uhr1
+            type: numeric(13, 2)
+        - column:
+            name: uhr2
+            type: numeric(13, 2)
+        - column:
+            name: uhrproc
+            type: numeric(5, 2)
+        - column:
+            name: zap1
+            type: numeric(13, 2)
+        - column:
+            name: zap2
+            type: numeric(13, 2)
+        - column:
+            name: zpvyd
+            type: VARCHAR(1)
+        - column:
+            name: zvl
+            type: VARCHAR(1)
+        - column:
+            name: atc
+            type: VARCHAR(7)
+        - column:
+            name: cesta
+            type: VARCHAR(7)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: individually_prepared_drug_pkey
+            name: kod
+            type: VARCHAR(7)
+        - column:
+            name: mno
+            type: VARCHAR(8)
+        - column:
+            name: sila
+            type: VARCHAR(15)
+        - column:
+            name: forma
+            type: VARCHAR(19)
+        - column:
+            name: baleni
+            type: VARCHAR(22)
+        - column:
+            name: ome1
+            type: VARCHAR(27)
+        - column:
+            name: naz
+            type: VARCHAR(70)
+        - column:
+            name: dop
+            type: VARCHAR(80)
+        tableName: individually_prepared_drug
+- changeSet:
+    id: 1734496108674-76
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: insurance_relationship_pkey
+            name: kod
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: naz
+            type: VARCHAR(50)
+        tableName: insurance_relationship
+- changeSet:
+    id: 1734496108674-77
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: den
+            type: date
+        - column:
+            name: id_zp
+            type: SMALLINT
+        - column:
+            name: mno
+            type: numeric(11, 3)
+        - column:
+            name: typ
+            type: SMALLINT
+        - column:
+            name: kod
+            type: VARCHAR(7)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: item_pkey
+            name: idzz
+            type: VARCHAR(8)
+        - column:
+            name: run_id
+            type: BIGINT
+        - column:
+            name: id_dokladu
+            type: VARCHAR(20)
+        tableName: item
+- changeSet:
+    id: 1734496108674-78
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: datdo
+            type: date
+        - column:
+            name: datod
+            type: date
+        - column:
+            name: dnc
+            type: VARCHAR(1)
+        - column:
+            name: lim1
+            type: VARCHAR(1)
+        - column:
+            name: lim2
+            type: VARCHAR(1)
+        - column:
+            name: lim3
+            type: VARCHAR(1)
+        - column:
+            name: mfc
+            type: numeric(13, 2)
+        - column:
+            name: mj
+            type: VARCHAR(4)
+        - column:
+            name: pro
+            type: VARCHAR(1)
+        - column:
+            name: rp2
+            type: numeric(13, 2)
+        - column:
+            name: rp4
+            type: numeric(13, 2)
+        - column:
+            name: skp
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: tbal
+            type: VARCHAR(4)
+        - column:
+            name: typ
+            type: VARCHAR(2)
+        - column:
+            name: udoks
+            type: numeric(10)
+        - column:
+            name: uhp
+            type: numeric(5)
+        - column:
+            name: uhr1
+            type: numeric(13, 2)
+        - column:
+            name: uhr2
+            type: numeric(13, 2)
+        - column:
+            name: uhr3
+            type: numeric(13, 2)
+        - column:
+            name: upo
+            type: VARCHAR(1)
+        - column:
+            name: vyr
+            type: VARCHAR(3)
+        - column:
+            name: zem
+            type: VARCHAR(3)
+        - column:
+            name: kat
+            type: VARCHAR(5)
+        - column:
+            name: mjd
+            type: VARCHAR(6)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: medical_product_pkey
+            name: kod
+            type: VARCHAR(7)
+        - column:
+            name: pkod
+            type: VARCHAR(7)
+        - column:
+            name: dat
+            type: VARCHAR(8)
+        - column:
+            name: udo
+            type: VARCHAR(10)
+        - column:
+            name: uhs
+            type: VARCHAR(15)
+        - column:
+            name: naz
+            type: VARCHAR(70)
+        - column:
+            name: dop
+            type: VARCHAR(80)
+        - column:
+            name: ohl
+            type: VARCHAR(80)
+        - column:
+            name: ome1
+            type: VARCHAR(80)
+        - column:
+            name: ome2
+            type: VARCHAR(80)
+        - column:
+            name: ome3
+            type: VARCHAR(80)
+        - column:
+            name: rp1
+            type: VARCHAR(80)
+        - column:
+            name: rp3
+            type: VARCHAR(80)
+        - column:
+            name: rp5
+            type: VARCHAR(80)
+        tableName: medical_product
+- changeSet:
+    id: 1734496108674-79
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: birth_date
+            type: date
+        - column:
+            name: valid
+            type: BOOLEAN
+        - column:
+            name: gender
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: patient_pkey
+            name: id
+            type: VARCHAR(255)
+        tableName: patient
+- changeSet:
+    id: 1734496108674-80
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: patient_category_pkey
+            name: kod
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: naz
+            type: VARCHAR(60)
+        tableName: patient_category
+- changeSet:
+    id: 1734496108674-81
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: payor_pkey
+            name: kod
+            type: VARCHAR(3)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: datová schránka
+            type: VARCHAR(8)
+        - column:
+            name: ic
+            type: VARCHAR(8)
+        - column:
+            name: naz
+            type: VARCHAR(50)
+        - column:
+            name: sídlo
+            type: VARCHAR(255)
+        tableName: payor
+- changeSet:
+    id: 1734496108674-82
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: odb1
+            type: VARCHAR(3)
+        - column:
+            name: odb10
+            type: VARCHAR(3)
+        - column:
+            name: odb2
+            type: VARCHAR(3)
+        - column:
+            name: odb3
+            type: VARCHAR(3)
+        - column:
+            name: odb4
+            type: VARCHAR(3)
+        - column:
+            name: odb6
+            type: VARCHAR(3)
+        - column:
+            name: odb7
+            type: VARCHAR(3)
+        - column:
+            name: odb8
+            type: VARCHAR(3)
+        - column:
+            name: odb9
+            type: VARCHAR(3)
+        - column:
+            name: pri
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: odb5
+            type: VARCHAR(5)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: prescription_restriction_pkey
+            name: ozo
+            type: VARCHAR(5)
+        - column:
+            name: naz
+            type: VARCHAR(100)
+        tableName: prescription_restriction
+- changeSet:
+    id: 1734496108674-83
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: amount
+            type: FLOAT4
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: product_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: product_class
+            type: INTEGER
+        - column:
+            name: reimbursement
+            type: FLOAT4
+        - column:
+            name: date_administered
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: billing_code
+            type: VARCHAR(255)
+        - column:
+            name: diagnosis_code
+            type: VARCHAR(255)
+        - column:
+            name: drug_code
+            type: VARCHAR(255)
+        tableName: product
+- changeSet:
+    id: 1734496108674-84
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: product_class_pkey
+            name: kod
+            type: VARCHAR(1)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: naz
+            type: VARCHAR(60)
+        tableName: product_class
+- changeSet:
+    id: 1734496108674-85
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: datdo
+            type: date
+        - column:
+            name: datod
+            type: date
+        - column:
+            name: kat
+            type: VARCHAR(2)
+        - column:
+            name: odb
+            type: VARCHAR(3)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: reference_procedure_pkey
+            name: kod
+            type: VARCHAR(5)
+        - column:
+            name: bod
+            type: VARCHAR(6)
+        - column:
+            name: tvy
+            type: VARCHAR(6)
+        - column:
+            name: pma
+            type: VARCHAR(7)
+        - column:
+            name: omo
+            type: VARCHAR(30)
+        - column:
+            name: naz
+            type: VARCHAR(254)
+        - column:
+            name: vys
+            type: VARCHAR(254)
+        - column:
+            name: ctn
+            type: TEXT
+        - column:
+            name: ome
+            type: TEXT
+        - column:
+            name: pjp
+            type: TEXT
+        - column:
+            name: zum
+            type: TEXT
+        tableName: reference_procedure
+- changeSet:
+    id: 1734496108674-86
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: specialty_pkey
+            name: kod
+            type: VARCHAR(3)
+        - column:
+            name: pa1
+            type: numeric(7, 2)
+        - column:
+            name: pa2
+            type: numeric(7, 2)
+        - column:
+            name: ph1
+            type: numeric(7, 2)
+        - column:
+            name: ph2
+            type: numeric(7, 2)
+        - column:
+            name: ph3
+            type: numeric(7, 2)
+        - column:
+            name: ph4
+            type: numeric(7, 2)
+        - column:
+            name: ph5
+            type: numeric(7, 2)
+        - column:
+            name: sodb
+            type: VARCHAR(3)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: naz
+            type: VARCHAR(60)
+        tableName: specialty
+- changeSet:
+    id: 1734496108674-87
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: staging_pkey
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: payload
+            type: TEXT
+        tableName: staging
+- changeSet:
+    id: 1734496108674-88
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: unprocessable_pkey
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: event
+            type: TEXT
+        tableName: unprocessable
+- changeSet:
+    id: 1734496108674-89
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: firstname
+            type: VARCHAR(255)
+        - column:
+            name: lastname
+            type: VARCHAR(255)
+        - column:
+            name: password
+            type: VARCHAR(255)
+        - column:
+            name: username
+            type: VARCHAR(255)
+        - column:
+            name: photo
+            type: OID
+        tableName: user
+- changeSet:
+    id: 1734496108674-90
+    author: jack (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: vzp_branch_pkey
+            name: cpo
+            type: VARCHAR(4)
+        - column:
+            name: smk
+            type: VARCHAR(4)
+        - column:
+            name: stav
+            type: BOOLEAN
+        - column:
+            name: psb
+            type: VARCHAR(5)
+        - column:
+            name: psp
+            type: VARCHAR(5)
+        - column:
+            name: uct
+            type: VARCHAR(18)
+        - column:
+            name: naz
+            type: VARCHAR(22)
+        - column:
+            name: ab1
+            type: VARCHAR(30)
+        - column:
+            name: ab2
+            type: VARCHAR(30)
+        - column:
+            name: ap1
+            type: VARCHAR(30)
+        - column:
+            name: ap2
+            type: VARCHAR(30)
+        - column:
+            name: bnk
+            type: VARCHAR(30)
+        tableName: vzp_branch
+- changeSet:
+    id: 1734496108674-91
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk7
+        baseTableName: drg_ideal_case
+        constraintName: fk130abgvj6vgopnhq8k6j6rr99
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-92
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: department_id
+        baseTableName: billing_rule
+        constraintName: fk1iiwg10rpkueooqwx8itl89o4
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: customer_department
+        validate: true
+- changeSet:
+    id: 1734496108674-93
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi9
+        baseTableName: drg_ideal_case
+        constraintName: fk1r4uioytqj8h3fwh49il7bmqs
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-94
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: user_permission
+        constraintName: fk2ql9a0og46bhysegsgxkp8g6n
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+    id: 1734496108674-95
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk13
+        baseTableName: drg_ideal_case
+        constraintName: fk2rqb15tlok5y6hxocdt9y5lqh
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-96
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk23
+        baseTableName: drg_ideal_case
+        constraintName: fk2segudb372b7o7fi171m8mknq
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-97
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk22
+        baseTableName: drg_ideal_case
+        constraintName: fk3e6c72xvucchndt330lt7ke54
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-98
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup3
+        baseTableName: drg_ideal_case
+        constraintName: fk3vkva0wmdt2hqquagwymmh1b3
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-99
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi2
+        baseTableName: drg_ideal_case
+        constraintName: fk42pvqu328ydfrhaw547jgdmli
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-100
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk1
+        baseTableName: drg_ideal_case
+        constraintName: fk4hbingr7esw4xlcvwa2lebfw0
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-101
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup0
+        baseTableName: drg_ideal_case
+        constraintName: fk4idn05yyuguk3q9mq4edkhnr6
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-102
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: department_id
+        baseTableName: patient_event
+        constraintName: fk55kds5vfupggva6xah6pulhk6
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: customer_department
+        validate: true
+- changeSet:
+    id: 1734496108674-103
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: specialty_kod
+        baseTableName: procedure
+        constraintName: fk5bysh57qq1hcnf5tlcfp0b6nc
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: specialty
+        validate: true
+- changeSet:
+    id: 1734496108674-104
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup4
+        baseTableName: drg_ideal_case
+        constraintName: fk64su7bvgycs7wwo4xxojms0fu
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-105
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi13
+        baseTableName: drg_ideal_case
+        constraintName: fk6biroy15g8s0ilrh1def48upi
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-106
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi8
+        baseTableName: drg_ideal_case
+        constraintName: fk7llah44abyg6svhkn163mad46
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-107
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: customer_id
+        baseTableName: data_pump_customer_permissions
+        constraintName: fk82isxtfpxm015lpgnicgmd4rm
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: customer
+        validate: true
+- changeSet:
+    id: 1734496108674-108
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: user_script
+        constraintName: fk8roljpnjrfxnqiko3tqysa9ul
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+    id: 1734496108674-109
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup14
+        baseTableName: drg_ideal_case
+        constraintName: fk8sxr5hvyaoo9a4xh0tgnaqscv
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-110
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup7
+        baseTableName: drg_ideal_case
+        constraintName: fk92sayoc3t35ll8n1g0st9n426
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-111
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: contracted_department_icp
+        baseTableName: customer_department
+        constraintName: fk9h2f5s25f1qyjcq5j7smt78et
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: icp
+        referencedTableName: contracted_department
+        validate: true
+- changeSet:
+    id: 1734496108674-112
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: customer_id
+        baseTableName: customer_configuration
+        constraintName: fk9mi7b5wb4xr81viarivhkr1yc
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: customer
+        validate: true
+- changeSet:
+    id: 1734496108674-113
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk5
+        baseTableName: drg_ideal_case
+        constraintName: fka7w5nykihwyqjt6ieu9td0kdn
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-114
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_event_id
+        baseTableName: patient_event_additional_diagnoses
+        constraintName: fkaaet51s5fr21axtmi26bvvrsy
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: patient_event
+        validate: true
+- changeSet:
+    id: 1734496108674-115
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: documents_id
+        baseTableName: patient_event_documents
+        constraintName: fkaj78jenaqxii6aljw1os2ktbm
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: document
+        validate: true
+- changeSet:
+    id: 1734496108674-116
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup2
+        baseTableName: drg_ideal_case
+        constraintName: fkakf7qshvwabe5excj1hfqbxn2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-117
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk20
+        baseTableName: drg_ideal_case
+        constraintName: fkapmhiyf9flcv3kapl5ghmnvj8
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-118
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup13
+        baseTableName: drg_ideal_case
+        constraintName: fkbeiinuu7dwyajiq3ig585o7jo
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-119
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: specialty_kod
+        baseTableName: customer_department
+        constraintName: fkbqobgiq19rkq304pbm4asav2p
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: specialty
+        validate: true
+- changeSet:
+    id: 1734496108674-120
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk2
+        baseTableName: drg_ideal_case
+        constraintName: fkbvflec3qt7pys1kdh6xd9yr0a
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-121
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_hlavni
+        baseTableName: drg_ideal_case
+        constraintName: fkbydlrdrcw5rkah60p5p37hxhj
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-122
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk10
+        baseTableName: drg_ideal_case
+        constraintName: fkc7npnq2ulsg8kv174fyd5xdbx
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-123
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk11
+        baseTableName: drg_ideal_case
+        constraintName: fkctxoihjiftmrqgyu3sblc26b5
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-124
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk19
+        baseTableName: drg_ideal_case
+        constraintName: fkcynfl7jvtlkawq8hj28dhvtb6
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-125
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi11
+        baseTableName: drg_ideal_case
+        constraintName: fkdc9fhjo8r2aml9mxi3b8351yk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-126
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk21
+        baseTableName: drg_ideal_case
+        constraintName: fkdn50xnmvjio759fjx8aatwmq0
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-127
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: general_settings
+        constraintName: fkdw13i4kfw2q1rguxieo3wyqwu
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+    id: 1734496108674-128
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk18
+        baseTableName: drg_ideal_case
+        constraintName: fkdxrsqvi5lcudall3xqf9nxes2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-129
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: department_id
+        baseTableName: customer_passport
+        constraintName: fke4xldbremvuyq0yw15lk1bih7
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: customer_department
+        validate: true
+- changeSet:
+    id: 1734496108674-130
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: additional_diagnoses_id
+        baseTableName: patient_event_additional_diagnoses
+        constraintName: fkejvq2di5pifpcvy3nmd3hefqa
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: additional_diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-131
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi3
+        baseTableName: drg_ideal_case
+        constraintName: fkenetxinew2bgaukxbgsr9ptsx
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-132
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: data_pump_id
+        baseTableName: data_pump_customer_permissions
+        constraintName: fkenmrff14f7b6q150tv4tia2qe
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: data_pump
+        validate: true
+- changeSet:
+    id: 1734496108674-133
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup1
+        baseTableName: drg_ideal_case
+        constraintName: fkf4qkxjd0oejn4kqggangdxrsa
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-134
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup5
+        baseTableName: drg_ideal_case
+        constraintName: fkf4v3a225rbs8iq39uy056pbrt
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-135
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: customer_id
+        baseTableName: billing_rule
+        constraintName: fkf8pe9nonbligumsocm9g8srx7
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: customer
+        validate: true
+- changeSet:
+    id: 1734496108674-136
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup9
+        baseTableName: drg_ideal_case
+        constraintName: fkf9jr6bupvyy418h8n7ayayfxi
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-137
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk4
+        baseTableName: drg_ideal_case
+        constraintName: fkfdkl04ie7rp1jl9fogsuy2sf
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-138
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: payor_kod
+        baseTableName: customer_passport
+        constraintName: fkfhmar4c5uvx6433pwep7s8ku1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: payor
+        validate: true
+- changeSet:
+    id: 1734496108674-139
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi6
+        baseTableName: drg_ideal_case
+        constraintName: fkfm2wmryxpry6hfo2h6gmr2sm5
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-140
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk9
+        baseTableName: drg_ideal_case
+        constraintName: fkfwcbg4n6px2nkyv9wmeeghlix
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-141
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup12
+        baseTableName: drg_ideal_case
+        constraintName: fkg5lpk834wv5tnfxvpfqkjsj1j
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-142
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_event_id
+        baseTableName: patient_event_procedures
+        constraintName: fkgfjb9i8lga7mjyj2i6149j954
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: patient_event
+        validate: true
+- changeSet:
+    id: 1734496108674-143
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk6
+        baseTableName: drg_ideal_case
+        constraintName: fkgt4djbjfk7p17qmdigo64me42
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-144
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi4
+        baseTableName: drg_ideal_case
+        constraintName: fkgth782bvsx0p2grqmm9ln5kjq
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-145
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi7
+        baseTableName: drg_ideal_case
+        constraintName: fkh01jvja2y289fqr3s0l5pgelb
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-146
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi10
+        baseTableName: drg_ideal_case
+        constraintName: fkhk23qwl4fguybe3lf95d82rem
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-147
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: procedure_id
+        baseTableName: customer_passport
+        constraintName: fkhnarn6sn5yv5eqck8ouxncpj7
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-148
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup8
+        baseTableName: drg_ideal_case
+        constraintName: fkiji0t3m3mhr2rg4tg40mxc7g0
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-149
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk3
+        baseTableName: drg_ideal_case
+        constraintName: fkj7ik2tivfyq7xg0xt2oi22ofn
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-150
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi14
+        baseTableName: drg_ideal_case
+        constraintName: fkjt5c9ifi5n6s50021i4bg5jiv
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-151
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: vzp_branch_cpo
+        baseTableName: customer
+        constraintName: fkjtcigj6f2plc9ta6y71xa4fwy
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: cpo
+        referencedTableName: vzp_branch
+        validate: true
+- changeSet:
+    id: 1734496108674-152
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk12
+        baseTableName: drg_ideal_case
+        constraintName: fkk3bj7gemsm8n53ekddoeymc72
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-153
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk17
+        baseTableName: drg_ideal_case
+        constraintName: fkmiks8nipw4a3hurcch7vhtyxb
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-154
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi1
+        baseTableName: drg_ideal_case
+        constraintName: fkmlk7r3iraks44q9uukioko33m
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-155
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: data_pump_id
+        baseTableName: data_pump_allowed_ip_addresses
+        constraintName: fknkynd497x8v9uptxc84b36h32
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: data_pump
+        validate: true
+- changeSet:
+    id: 1734496108674-156
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk25
+        baseTableName: drg_ideal_case
+        constraintName: fkntj0jihbnfdk83g6vv957h8gb
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-157
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: products_id
+        baseTableName: patient_event_products
+        constraintName: fko12egnbw92f76ptkfmdufs5wu
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: product
+        validate: true
+- changeSet:
+    id: 1734496108674-158
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup15
+        baseTableName: drg_ideal_case
+        constraintName: fko32gweu8dby67u2gc9fkkfsqt
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-159
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: customer_id
+        baseTableName: drg_ideal_case
+        constraintName: fkp3n60ocwvbk9iqsri0lk2tefc
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: customer
+        validate: true
+- changeSet:
+    id: 1734496108674-160
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk8
+        baseTableName: drg_ideal_case
+        constraintName: fkp4dvw386bwcgpc26s40eohhhr
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-161
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_event_id
+        baseTableName: patient_event_products
+        constraintName: fkp9u6js75ayrif4eo1yrhkviye
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: patient_event
+        validate: true
+- changeSet:
+    id: 1734496108674-162
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk16
+        baseTableName: drg_ideal_case
+        constraintName: fkprhnos300cq5poaq6lcs9n7pd
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-163
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup6
+        baseTableName: drg_ideal_case
+        constraintName: fkpsu0leu6m4n3wg556bc5itv01
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-164
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_id
+        baseTableName: patient_event
+        constraintName: fkqfoggbnsj0qg7012cph80x8w0
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: patient
+        validate: true
+- changeSet:
+    id: 1734496108674-165
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: configuration_item_id
+        baseTableName: customer_configuration
+        constraintName: fkqiptxhmt39gkvfr69ocu6wv8x
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: configuration_item
+        validate: true
+- changeSet:
+    id: 1734496108674-166
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: procedures_id
+        baseTableName: patient_event_procedures
+        constraintName: fkr0l5fwwgi4mgkoa7h90yxc09
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-167
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: zup11
+        baseTableName: drg_ideal_case
+        constraintName: fkr1lyjefuvmo3apgd69ofk37kp
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-168
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk14
+        baseTableName: drg_ideal_case
+        constraintName: fkr381rcg913gaibr66pf7mv8dw
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-169
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi12
+        baseTableName: drg_ideal_case
+        constraintName: fkr93mk6ynndbfwuqjprvhpyox8
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-170
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: kod
+        baseTableName: hospital_drug
+        constraintName: fkrpd1sl88sav0ckam1myi06dbl
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: drug
+        validate: true
+- changeSet:
+    id: 1734496108674-171
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dg_vedlejsi5
+        baseTableName: drg_ideal_case
+        constraintName: fksey8bm49ibex8hde6pe52et03
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: kod
+        referencedTableName: diagnosis
+        validate: true
+- changeSet:
+    id: 1734496108674-172
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk15
+        baseTableName: drg_ideal_case
+        constraintName: fksiedib9splm98wvmeas05twjl
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-173
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_event_id
+        baseTableName: patient_event_documents
+        constraintName: fksmtd2p4s8ptr9b8mbuai0cu1v
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: patient_event
+        validate: true
+- changeSet:
+    id: 1734496108674-174
+    author: jack (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: krit_vyk24
+        baseTableName: drg_ideal_case
+        constraintName: fktmgcepnwp7pfs1jqy1qgf5ll2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: procedure
+        validate: true
+- changeSet:
+    id: 1734496108674-175
+    author: jack
+    changes:
+      - createTable:
+          tableName: error_log
+          columns:
+            - column:
+                name: id
+                type: INT
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+            - column:
+                name: error_date
+                type: TIMESTAMP
+                constraints:
+                  nullable: false
+            - column:
+                name: department
+                type: VARCHAR(255)
+                constraints:
+                  nullable: false
+            - column:
+                name: message
+                type: TEXT
+                constraints:
+                  nullable: false
+            - column:
+                name: type
+                type: VARCHAR(50)
+                constraints:
+                  nullable: false
+
+- changeSet:
+    id: 1734496108674-176
+    author: jack
+    changes:
+      - sql:
+          splitStatements: false
+          stripComments: true
+          sql: |
+            CREATE TYPE error_type AS ENUM ('IMPORT', 'VALIDATION');
+            ALTER TABLE error_log ALTER COLUMN type TYPE error_type USING type::error_type;
+- changeSet:
+    id: 1734496108674-179
+    author: jack
+    changes:
+        - dropColumn:
+              tableName: customer_passport
+              columnName: procedure_id
+        - addColumn:
+              tableName: procedure
+              columns:
+                  - column:
+                        name: customer_passport_id
+                        type: VARCHAR(255)
+                        constraints:
+                            nullable: false
+        - addForeignKeyConstraint:
+              baseTableName: procedure
+              baseColumnNames: customer_passport_id
+              referencedTableName: customer_passport
+              referencedColumnNames: id
+              constraintName: fk_procedure_customer_passport
+
+- changeSet:
+      id: 1734496108674-180
+      author: jack
+      changes:
+          - addColumn:
+                tableName: billing_rule
+                columns:
+                    - column:
+                          name: active
+                          type: BOOLEAN
+                          defaultValueBoolean: true

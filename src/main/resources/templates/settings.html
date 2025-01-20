@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/bootstrapLayout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-body-color text-center">
+                        <h5 class="card-title" th:text="#{settings.general}">General</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/settings/general" method="POST">
+                            <div class="mb-3">
+                                <label for="customerTitle" class="form-label" th:text="#{settings.customerTitle}">Title</label>
+                                <input type="text" class="form-control" id="customerTitle" value="Nemocnice Blansko"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="firstname" class="form-label" th:text="#{settings.firstname}">Firstname</label>
+                                <input type="text" class="form-control" id="firstname" th:value="${firstname}"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastname" class="form-label" th:text="#{settings.lastname}">Lastname</label>
+                                <input type="text" class="form-control" id="lastname" th:value="${lastname}"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label" th:text="#{settings.email}">Email</label>
+                                <input type="email" class="form-control" id="email" th:value="${email}"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="photo" class="form-label" th:text="#{settings.photo}">Photo</label>
+                                <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary" th:text="#{settings.save}">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-body-color text-center">
+                        <h5 class="card-title" th:text="#{settings.changePassword}">Change Password</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/settings/password" method="POST">
+                            <div class="mb-3">
+                                <label for="username" class="form-label" th:text="#{settings.username}">Username:</label>
+                                <input type="text" class="form-control" id="username" th:value="${email}" readonly="readonly">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label" th:text="#{settings.password}">Password:</label>
+                                <input type="password" class="form-control" id="password" th:placeholder="#{settings.enterNewPassword}"
+                                       placeholder="Enter a new password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label" th:text="#{settings.confirmPassword}">Confirm Password:</label>
+                                <input type="password" class="form-control" id="confirmPassword" th:placeholder="#{settings.confirmNewPassword}"
+                                        placeholder="Confirm the new password">
+                            <p class="text-muted" th:text="#{settings.enterNewPasswordInfo}">Enter a new password to log into ACME
+                                application.</p>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary" th:text="#{settings.save}">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

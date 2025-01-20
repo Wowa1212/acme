@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACME</title>
+    <!-- Link NiceAdmin CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Vendor JS Files -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/5.2.0/screenfull.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+</head>
+<body>
+
+<header id="header">
+    <div id="div-greetings" class="div-greetings">
+        <h1 id="h1-greeting" th:text="${salutation}">Salutation</h1><span id="header-date" class="header-date gray-font small-font"
+                                                          th:text="${formattedDate}">Current date</span>
+
+    </div>
+
+    <div id="div-department" class="div-department">
+        <h1 id="h1-department">Nemocnice Blansko</h1>
+    </div>
+
+    <div class="div-end">
+        <div class="div-search" id="div-search">
+            <i class="bi bi-search"></i>
+            <input class="input-search" type="text" th:placeholder="#{layout.searchPlaceholder}" placeholder="Search for patient or bill">
+        </div>
+        <a th:href="@{''(locale=en)}">EN</a>
+        <a th:href="@{''(locale=cs)}">CZ</a>
+        <button class="btn waves-effect waves-light">
+            <i class="bi bi-bell"></i>
+        </button>
+        <button type="button" class="btn waves-effect waves-light btn-light light-button">
+            <i class="bi bi-sun"></i>
+        </button>
+        <button type="button" class="btn waves-effect waves-light btn-dark dark-button">
+            <i class="bi bi-moon"></i>
+        </button>
+    </div>
+</header>
+<!-- Sidebar -->
+<button id="menu-toggle" class="menu-toggle btn btn-primary">
+    <i class="bi bi-list"></i>
+</button>
+<aside id="sidebar" class="sidebar">
+    <div class="logo" id="logo">
+        <img src="assets/img/logo.png" alt="Logo">
+        <span class="logo-text" id="logo-text">ACME</span>
+    </div>
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/" th:classappend="${menu != 'dashboard' ? 'collapsed' : ''}">
+                <i class="bi bi-grid"></i>
+                <span th:text="#{menu.dashboard}">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" th:classappend="${menu != 'customerDetail' ? 'collapsed' : ''}">
+                <i class="bi bi-file-earmark"></i>
+                <span th:text="#{menu.customerDetail}">Customer Detail</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" th:classappend="${menu != 'rules' ? 'collapsed' : ''}">
+                <i class="bi bi-gear"></i>
+                <span th:text="#{menu.ruleManagement}">Rules</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" th:classappend="${menu != 'analytics' ? 'collapsed' : ''}">
+                <i class="bi bi-bar-chart"></i>
+                <span th:text="#{menu.analytics}">Analytics</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" th:classappend="${menu != 'changeLog' ? 'collapsed' : ''}">
+                <i class="bi bi-pencil-square"></i>
+                <span th:text="#{menu.changeLog}">Change Log</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" th:classappend="${menu != 'errorLog' ? 'collapsed' : ''}">
+                <i class="bi bi-exclamation-circle"></i>
+                <span th:text="#{menu.errorLog}">Error Log</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/settings" th:classappend="${menu != 'settings' ? 'collapsed' : ''}">
+                <i class="bi bi-gear-fill"></i>
+                <span th:text="#{menu.settings}">Settings</span>
+            </a>
+        </li>
+    </ul>
+</aside>
+
+<!-- Main Content -->
+<main id="main" class="main">
+    <section class="section">
+        <!-- Your content goes here -->
+        <div layout:fragment="content"></div>
+    </section>
+</main>
+
+<footer class="div-user">
+    <a class="logout" href="/logout" th:text="#{menu.logout}">Logout</a>
+    <br/>
+    <span class="small-font" sec:authentication="principal.name"> </span>
+    <br />
+    <span class="mini-font gray-font" sec:authentication="name"></span>
+    <br />
+    <span class="mini-font" th:text="'ACME ' + ${appVersion}"></span>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    window.onpaint = checkTheme();
+    $(document).ready(function() {
+        var lightButton = $('.light-button');
+        var darkButton = $('.dark-button');
+
+        lightButton.on('click', function() {
+            $('body').removeClass('dark-mode');
+             document.documentElement.style.setProperty('--bs-body-bg', 'white');
+             document.documentElement.style.setProperty('--bs-emphasis-color', 'black');
+             localStorage.setItem('theme', 'light');
+        });
+
+        darkButton.on('click', function() {
+            $('body').addClass('dark-mode');
+            document.documentElement.style.setProperty('--bs-body-bg', '#273a4c');
+            document.documentElement.style.setProperty('--bs-emphasis-color', 'white');
+            localStorage.setItem('theme', 'dark');
+        });
+
+        const menuToggle = $('#menu-toggle');
+        const sidebar = $('#sidebar');
+        const overlay = $('<div>').addClass('sidebar-overlay');
+
+        $('body').append(overlay);
+
+        const openSidebar = () => {
+            sidebar.addClass('open');
+            overlay.addClass('active');
+        };
+
+        const closeSidebar = () => {
+            sidebar.removeClass('open');
+            overlay.removeClass('active');
+        };
+
+        menuToggle.on('click', function() {
+            if (sidebar.hasClass('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+
+        overlay.on('click', closeSidebar);
+    });
+
+        function checkTheme(){
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+        if(savedTheme === 'dark') {
+              $('body').toggleClass('dark-mode', 'dark');
+                document.documentElement.style.setProperty('--bs-body-bg', '#273a4c');
+                document.documentElement.style.setProperty('--bs-emphasis-color', 'white');
+            } else{
+              $('body').toggleClass('light-mode', 'light');
+               document.documentElement.style.setProperty('--bs-body-bg', 'white');
+               document.documentElement.style.setProperty('--bs-emphasis-color', 'black');
+            }
+        }}
+
+        function changeMode(className, dark) {
+            const cards = document.querySelectorAll(className);
+            cards.forEach(card => {
+                if(dark) {
+                    card.classList.add('dark-mode');
+                    card.classList.remove('light-mode');
+                } else {
+                    card.classList.add('light-mode');
+                    card.classList.remove('dark-mode');
+                }
+            });
+        }
+
+        function fullscreen(button, element) {
+            document.getElementById(button).addEventListener('click', function () {
+            const card = document.getElementById(element);
+             if (!document.fullscreenElement) {
+              card.requestFullscreen().catch(err => {
+               console.error(`Chyba při přepnutí do fullscreen režimu: ${err.message}`);
+             });
+             } else {
+                document.exitFullscreen();
+             }
+        });
+        }
+
+</script>
+
+</body>
+</html>
